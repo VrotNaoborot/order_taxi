@@ -30,17 +30,17 @@
         {
             this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.таблицаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.заказыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.пользователиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.типТранспортаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.транспортToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.обновитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.добавитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.изменитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.выйтиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.заказыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.пользователиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.типТранспортаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.транспортToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -61,11 +61,6 @@
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
             // таблицаToolStripMenuItem
             // 
             this.таблицаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -76,6 +71,34 @@
             this.таблицаToolStripMenuItem.Name = "таблицаToolStripMenuItem";
             this.таблицаToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
             this.таблицаToolStripMenuItem.Text = "Таблица";
+            // 
+            // заказыToolStripMenuItem
+            // 
+            this.заказыToolStripMenuItem.Name = "заказыToolStripMenuItem";
+            this.заказыToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.заказыToolStripMenuItem.Text = "Заказы";
+            this.заказыToolStripMenuItem.Click += new System.EventHandler(this.заказыToolStripMenuItem_Click);
+            // 
+            // пользователиToolStripMenuItem
+            // 
+            this.пользователиToolStripMenuItem.Name = "пользователиToolStripMenuItem";
+            this.пользователиToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.пользователиToolStripMenuItem.Text = "Пользователи";
+            this.пользователиToolStripMenuItem.Click += new System.EventHandler(this.пользователиToolStripMenuItem_Click);
+            // 
+            // типТранспортаToolStripMenuItem
+            // 
+            this.типТранспортаToolStripMenuItem.Name = "типТранспортаToolStripMenuItem";
+            this.типТранспортаToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.типТранспортаToolStripMenuItem.Text = "Тип транспорта";
+            this.типТранспортаToolStripMenuItem.Click += new System.EventHandler(this.типТранспортаToolStripMenuItem_Click);
+            // 
+            // транспортToolStripMenuItem
+            // 
+            this.транспортToolStripMenuItem.Name = "транспортToolStripMenuItem";
+            this.транспортToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.транспортToolStripMenuItem.Text = "Транспорт";
+            this.транспортToolStripMenuItem.Click += new System.EventHandler(this.транспортToolStripMenuItem_Click);
             // 
             // обновитьToolStripMenuItem
             // 
@@ -103,40 +126,19 @@
             this.удалитьToolStripMenuItem.Name = "удалитьToolStripMenuItem";
             this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
             this.удалитьToolStripMenuItem.Text = "Удалить";
+            this.удалитьToolStripMenuItem.Click += new System.EventHandler(this.удалитьToolStripMenuItem_Click);
             // 
             // выйтиToolStripMenuItem
             // 
             this.выйтиToolStripMenuItem.Name = "выйтиToolStripMenuItem";
             this.выйтиToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
             this.выйтиToolStripMenuItem.Text = "Выйти";
+            this.выйтиToolStripMenuItem.Click += new System.EventHandler(this.выйтиToolStripMenuItem_Click);
             // 
-            // заказыToolStripMenuItem
+            // contextMenuStrip1
             // 
-            this.заказыToolStripMenuItem.Name = "заказыToolStripMenuItem";
-            this.заказыToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.заказыToolStripMenuItem.Text = "Заказы";
-            this.заказыToolStripMenuItem.Click += new System.EventHandler(this.заказыToolStripMenuItem_Click);
-            // 
-            // пользователиToolStripMenuItem
-            // 
-            this.пользователиToolStripMenuItem.Name = "пользователиToolStripMenuItem";
-            this.пользователиToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.пользователиToolStripMenuItem.Text = "Пользователи";
-            this.пользователиToolStripMenuItem.Click += new System.EventHandler(this.пользователиToolStripMenuItem_Click);
-            // 
-            // типТранспортаToolStripMenuItem
-            // 
-            this.типТранспортаToolStripMenuItem.Name = "типТранспортаToolStripMenuItem";
-            this.типТранспортаToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.типТранспортаToolStripMenuItem.Text = "Тип транспорта";
-            this.типТранспортаToolStripMenuItem.Click += new System.EventHandler(this.типТранспортаToolStripMenuItem_Click);
-            // 
-            // транспортToolStripMenuItem
-            // 
-            this.транспортToolStripMenuItem.Name = "транспортToolStripMenuItem";
-            this.транспортToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.транспортToolStripMenuItem.Text = "Транспорт";
-            this.транспортToolStripMenuItem.Click += new System.EventHandler(this.транспортToolStripMenuItem_Click);
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // dataGridView1
             // 

@@ -36,14 +36,13 @@ namespace Ordering_taxi
                 "`транспорт`.`Модель` " +
                 "FROM `ordering_taxi`.`заказы` " +
                 "left join `пользователи` on `заказы`.`ID_пользователя`=`пользователи`.`ID_пользователя` " +
-                "left join `транспорт` on `заказы`.`ID_транспорта`=`заказы`.`ID_транспорта`";
+                "left join `транспорт` on `заказы`.`ID_транспорта`=`транспорт`.`ID_транспорта`";
 
             MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(sqlQuery, connection);
             DataTable dataTable = new DataTable();
             mySqlDataAdapter.Fill(dataTable);
             dataGridView1.DataSource = dataTable;
 
-            dataGridView1.Columns["ID_заказа"].Visible = false;
             dataGridView1.Columns["ID_пользователя"].Visible = false;
             dataGridView1.Columns["ID_транспорта"].Visible = false;
 
@@ -188,6 +187,138 @@ namespace Ordering_taxi
                 Change_orders change_Orders = new Change_orders();
                 change_Orders.Show();
             }
+            else if (currentTable == "Пользователи")
+            {
+                Change_users change_users = new Change_users();
+                change_users.Show();
+            }
+            else if(currentTable == "Тип_транспорта")
+            {
+                Change_type_transport change_Type_Transport = new Change_type_transport();
+                change_Type_Transport.Show();
+            }
+            else if(currentTable == "Транспорт")
+            {
+                Change_transport change_Transport = new Change_transport();
+                change_Transport.Show();
+            }
+        }
+
+        private void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Необходимо выбрать строку для удаления", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (currentTable == "Заказы")
+            {
+                DbWorker db = new DbWorker();
+                MySqlConnection connection = db.Connect();
+
+                String sqlQuery = "SET foreign_key_checks = 0;";
+                sqlQuery += "DELETE FROM `Заказы` WHERE FALSE";
+                for (int i = 0; i < dataGridView1.SelectedRows.Count; i++)
+                {
+                    sqlQuery += " OR `ID_заказа`=" + dataGridView1.SelectedRows[i].Cells["ID_заказа"].Value;
+                }
+                sqlQuery += "; SET foreign_key_checks = 1;";
+                try
+                {
+                    MySqlCommand mySqlCommand = new MySqlCommand(sqlQuery, connection);
+                    int afferedRow = mySqlCommand.ExecuteNonQuery();
+                    MessageBox.Show("Успешно удалено " + afferedRow + " строк", "Успешное выполнение операции", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    connection.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Ошибка" + ex.Message, "Не удалось выполнить операцию", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+            else if(currentTable == "Пользователи")
+            {
+                DbWorker db = new DbWorker();
+                MySqlConnection connection = db.Connect();
+
+                String sqlQuery = "SET foreign_key_checks = 0;";
+                sqlQuery += "DELETE FROM `Пользователи` WHERE FALSE";
+                for (int i = 0; i < dataGridView1.SelectedRows.Count; i++)
+                {
+                    sqlQuery += " OR `ID_пользователя`=" + dataGridView1.SelectedRows[i].Cells["ID_пользователя"].Value;
+                }
+                sqlQuery += "; SET foreign_key_checks = 1;";
+                try
+                {
+                    MySqlCommand mySqlCommand = new MySqlCommand(sqlQuery, connection);
+                    int afferedRow = mySqlCommand.ExecuteNonQuery();
+                    MessageBox.Show("Успешно удалено " + afferedRow + " строк", "Успешное выполнение операции", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    connection.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Ошибка" + ex.Message, "Не удалось выполнить операцию", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+            else if (currentTable == "Тип_транспорта")
+            {
+                DbWorker db = new DbWorker();
+                MySqlConnection connection = db.Connect();
+
+                String sqlQuery = "SET foreign_key_checks = 0;";
+                sqlQuery += "DELETE FROM `тип_транспорта` WHERE FALSE";
+                for (int i = 0; i < dataGridView1.SelectedRows.Count; i++)
+                {
+                    sqlQuery += " OR `ID_типа_транспорта`=" + dataGridView1.SelectedRows[i].Cells["ID_типа_транспорта"].Value;
+                }
+                sqlQuery += "; SET foreign_key_checks = 1;";
+                try
+                {
+                    MySqlCommand mySqlCommand = new MySqlCommand(sqlQuery, connection);
+                    int afferedRow = mySqlCommand.ExecuteNonQuery();
+                    MessageBox.Show("Успешно удалено " + afferedRow + " строк", "Успешное выполнение операции", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    connection.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Ошибка" + ex.Message, "Не удалось выполнить операцию", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+            else if (currentTable == "Транспорт")
+            {
+                DbWorker db = new DbWorker();
+                MySqlConnection connection = db.Connect();
+
+                String sqlQuery = "SET foreign_key_checks = 0;";
+                sqlQuery += "DELETE FROM `Транспорт` WHERE FALSE";
+                for (int i = 0; i < dataGridView1.SelectedRows.Count; i++)
+                {
+                    sqlQuery += " OR `ID_транспорта`=" + dataGridView1.SelectedRows[i].Cells["ID_транспорта"].Value;
+                }
+                sqlQuery += "; SET foreign_key_checks = 1;";
+                try
+                {
+                    MySqlCommand mySqlCommand = new MySqlCommand(sqlQuery, connection);
+                    int afferedRow = mySqlCommand.ExecuteNonQuery();
+                    MessageBox.Show("Успешно удалено " + afferedRow + " строк", "Успешное выполнение операции", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    connection.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Ошибка" + ex.Message, "Не удалось выполнить операцию", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+        }
+
+        private void выйтиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Auth auth = new Auth();
+            auth.Show();
+            this.Hide();
         }
     }
 }

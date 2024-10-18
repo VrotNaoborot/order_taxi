@@ -16,7 +16,7 @@ namespace Ordering_taxi
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Main());
+            Application.Run(new Auth());
         }
     }
 }

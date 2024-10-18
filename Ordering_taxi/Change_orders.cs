@@ -95,7 +95,7 @@ namespace Ordering_taxi
                 "`ID_транспорта`='" + detected_id_transport + "', " +
                 "`Дата_и_время_заказа`='" + dateOrder.Value.ToString("yyyy-MM-dd HH:mm")+ "', " +
                 "`Дата_и_время_выполнения`='" + dateOrderFinished.Value.ToString("yyyy-MM-dd HH:mm") + "', " +
-                "`Цена`='" + price.Text + "', " +
+                "`Цена`='" + price.Text.Replace(",", ".") + "' " +
                 "WHERE `ID_заказа`=" + detected_id_orders + " ;";
             MySqlCommand mySqlCommand = new MySqlCommand(sqlQuery, connection);
             try
